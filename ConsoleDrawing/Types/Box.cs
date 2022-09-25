@@ -9,6 +9,8 @@ namespace ConsoleDrawing.Types
         public int Width { get; set; }
         public int Height { get; set; }
 
+        public static readonly Box Default = new(0, 0, Console.WindowWidth, Console.WindowHeight);
+
         public Box(int x, int y, int width, int height)
         {
             X = x;
@@ -26,5 +28,9 @@ namespace ConsoleDrawing.Types
         }
 
         public static implicit operator Box((int x, int y, int width, int height) box) => new(box.x, box.y, box.width, box.height);
+
+        public static bool operator ==(Box box1, Box box2) => box1.X == box2.X && box1.Y == box2.Y && box1.Width == box2.Width && box1.Height == box2.Height;
+        public static bool operator !=(Box box1, Box box2) => box1.X != box2.X && box1.Y != box2.Y && box1.Width != box2.Width && box1.Height != box2.Height;
+
     }
 }

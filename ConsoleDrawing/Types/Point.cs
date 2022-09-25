@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ConsoleDrawing.Types
 {
@@ -27,5 +28,17 @@ namespace ConsoleDrawing.Types
         public static Point operator -(Point point1, Point point2) => new(point1.X - point2.X, point1.Y - point2.Y);
         public static Point operator *(Point point, int number) => new(point.X * number, point.Y * number);
         public static implicit operator Point((int x, int y) point) => new(point.x, point.y);
+    }
+
+    [Flags]
+    public enum Alignment
+    {
+        None = 0,
+        Top = 1,
+        Middle = 2,
+        Bottom = 4,
+        Left =  8,
+        Center = 16,
+        Right = 32
     }
 }
