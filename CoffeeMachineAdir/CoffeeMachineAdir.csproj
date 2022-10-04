@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{187C928C-8ED3-4261-9FE7-3D1F8F3290C0}</ProjectGuid>
+    <ProjectGuid>{EFE566C1-63EC-414D-9C92-372340020829}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CoffeeMachine</RootNamespace>
-    <AssemblyName>CoffeeMachine</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RootNamespace>CoffeeMachineAdir</RootNamespace>
+    <AssemblyName>CoffeeMachineAdir</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,16 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Colorful.Console, Version=1.2.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Colorful.Console.1.2.15\lib\net461\Colorful.Console.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,28 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoffeeMachineTypes\Coffee.cs" />
-    <Compile Include="CoffeeMachineTypes\Recipe.cs" />
-    <Compile Include="CoffeeMachineTypes\Resourse.cs" />
-    <Compile Include="Components\CoffeeMachine.cs" />
-    <Compile Include="Components\ComponentStyles.cs" />
-    <Compile Include="Components\DisplayComponents\DisplayComponent.cs" />
-    <Compile Include="Components\ResourseComponents\ResourseContainer.cs" />
-    <Compile Include="Components\ResourseComponents\ResourseContainerGroup.cs" />
-    <Compile Include="Components\Component.cs" />
-    <Compile Include="Components\SelectComponents\SelectableComponent.cs" />
-    <Compile Include="Components\SelectComponents\SelectComponent.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Interface\IChild.cs" />
-    <Compile Include="Interface\ISelectable.cs" />
-    <Compile Include="IO\KeyBoard.cs" />
+    <Compile Include="Additive.cs" />
+    <Compile Include="Coffee.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

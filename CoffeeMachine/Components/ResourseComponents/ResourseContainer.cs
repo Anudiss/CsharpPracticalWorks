@@ -1,10 +1,11 @@
-﻿using CoffeeMachine.Components;
+﻿using CoffeeMachine.CoffeeMachineTypes;
+using CoffeeMachine.Interface;
 using System;
 using static Colorful.Console;
 
-namespace CoffeeMachine.CoffeeMachineTypes
+namespace CoffeeMachine.Components.ResourseComponents
 {
-    public class ResourseContainer : Component
+    public class ResourseContainer : Component, IChild
     {
         public Resourse Resourse { get; }
         public double Capacity { get; }
@@ -13,8 +14,6 @@ namespace CoffeeMachine.CoffeeMachineTypes
             get => _count;
             set
             {
-                if (value < 0)
-                    return;
                 _count = Extensions.Clamp(0, Capacity, value);
                 OnCountChanged?.Invoke(this);
             }
@@ -55,7 +54,7 @@ namespace CoffeeMachine.CoffeeMachineTypes
             {
                 CursorLeft = X;
                 CursorTop = y;
-                Write($"│{progressBar.PadRight(Width - 2)}│");
+                WriteStyled($"│{progressBar.PadRight(Width - 2)}│", IsFocus ? ComponentStyles.FocusProgressBar : ComponentStyles.Default);
             }
 
             CursorLeft = X;

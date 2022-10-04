@@ -4,34 +4,29 @@ using static Colorful.Console;
 using CoffeeMachine.CoffeeMachineTypes;
 using CoffeeMachine.Components;
 using System.Threading;
+using CoffeeMachine.Components.SelectComponents;
+using CoffeeMachine.Components.ResourseComponents;
+using CoffeeMachine.Components.DisplayComponents;
+using System.Net.Http.Headers;
 
 namespace CoffeeMachine
 {
     class Program
     {
+        public static Resourse Coffee = new Resourse("Кофе");
+        public static Resourse Water = new Resourse("Вода");
+        public static Resourse Milk = new Resourse("Молоко");
+
+        public static ResourseContainer CoffeeResourseContainer = new ResourseContainer(Coffee, 400, 400);
+        public static ResourseContainer WaterResourseContainer = new ResourseContainer(Water, 400, 400);
+        public static ResourseContainer MilkResourseContainer = new ResourseContainer(Milk, 400, 400);
+
         static void Main(string[] args)
         {
             InitConsole();
 
-            ResourseContainer resourseContainer = new ResourseContainer(
-                resourse: new Resourse("Кофе"),
-                count: 400,
-                capacity: 400);
-
-            ResourseContainer resourseContainer1 = new ResourseContainer(
-                resourse: new Resourse("Молоко"),
-                count: 76,
-                capacity: 100);
-
-            ResourseContainer resourseContainer2 = new ResourseContainer(
-                resourse: new Resourse("Вода"),
-                count: 250,
-                capacity: 300);
-
-            ResourseContainerGroup resourseContainerGroup = new ResourseContainerGroup(10, 10, 80, resourseContainer, resourseContainer1, resourseContainer2);
-            resourseContainerGroup.Draw();
-
-            ReadKey();
+            Components.CoffeeMachine coffeeMachine = new Components.CoffeeMachine();
+            coffeeMachine.Draw();
         }
 
         private static void InitConsole()
